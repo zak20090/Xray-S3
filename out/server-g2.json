@@ -1,0 +1,43 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "vless-s3",
+      "listen": "127.0.0.1",
+      "port": 10001,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "e329979d-d3ff-4ed3-a70a-71f512874fea"
+          }
+        ],
+        "decryption": "mlkem768x25519plus.native.600s.lXP21zWU218vPFmxH3fUGyTiRX5M7Oe9PhgGZul3awLD6_XWqZ6naCGfA0joRvkt--zNZBljYW6mSVqt8RDRRw"
+      },
+      "streamSettings": {
+        "network": "xdrive",
+        "security": "none",
+        "xdriveSettings": {
+          "service": "S3",
+          "remoteFolder": "xs3/homestr/g2",
+          "secrets": [
+            "{\"endpoint\":\"https://hb.ru-msk.vkcloud-storage.ru\",\"region\":\"ru-msk\",\"bucket\":\"mydatastreams\",\"accessKey\":\"p4PLxAXkDfwrJbWthXNjvo\",\"secretKey\":\"e9qtVmjeqFrhfzP1jN74BowhsC4TK9ghu56JDyrmWRNm\"}"
+          ],
+          "segmentBytes": 262144,
+          "flushIntervalMs": 30,
+          "pollIntervalMs": 150,
+          "maxPollIntervalMs": 1200,
+          "concurrency": 4,
+          "sessionTtlSeconds": 180
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}

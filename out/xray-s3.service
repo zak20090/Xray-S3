@@ -1,0 +1,20 @@
+[Unit]
+Description=Xray VLESS over S3 (xdrive)
+Wants=network-online.target time-sync.target
+After=network-online.target time-sync.target
+
+[Service]
+DynamicUser=yes
+LoadCredential=server.json:/etc/xray-s3/server.json
+ExecStart=/usr/local/bin/xray-s3 run -c ${CREDENTIALS_DIRECTORY}/server.json
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,58 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hb.ru-msk.vkcloud-storage.ru",
+            "port": 443,
+            "users": [
+              {
+                "id": "e329979d-d3ff-4ed3-a70a-71f512874fea",
+                "encryption": "mlkem768x25519plus.native.1rtt.PvqUsweMZbC3OJoZg2ugmtetAQeEj4equwNpqpFJ5oJDOPSjQ0IQnpPKqSig44W7SuCyMmWHyJE9gqlICcUv-fhGixbC0zoHwAyM0_JjRJTPn1C3UDXLn6fMS2p9WfwjXCKuj8ZJEFJlI2Zf5vs-4Jm43GZFNvmpQREMbQqMTKoRV-QwsRW3uJjKkElx-6jN6vpOJ1KOFPRNUdpD0mbGFqRf-jy8YZhci5UpNhfOfXw8j9WoFxyYoupMiKgNRdRjtqJW45HPIGfDO1Sai_S32xvDSCsOkOPGDkNMVvGJNgcOo8sxHwiIzfUd8Jozrpcm8FrKBliDG4po4sh67hkT6Bd1TBYfOdtXeGOOEAU_fUAhh6vNi5RanmgVHLpxxwhPvqWyATwnpriOF9cWA3NcMLcu-8aV51A4SkkS5qCYhjsBLWMD3xRimuQb5uN-daRjUkG1BJGIQsHPFfupBByfXcXM5mM6QAtyVXyDFiWTwjGEOKNz0TytBSxdH4SWsiYpyaWYPOBdPwc-NpOaaXYBaRMR29Ml_xRfeBKcH7awsxMNo_nJNInJYcdN4nJknkoIctrI3ReeePy2TAAoCzJiQ8I6N3RQZJEIQBW9_4pBUatQkHh5zxMWZ9qHjrVKREpYsOtNuya_D2UZm8LNF5OSviGWAfeR-6KYJ9iGNDZrPBN9z-Z-XdK9ZysbN1HHa5DMmatsIxdfpHK5rsqN3cp6IgVlYGt3EaOKPbJDCLgN6jB4dMlu5GNw7CRhucEVypk6WjYcAImbKlvJm2KyE5RoX6TCVARD9hYPt0AIGhOJuSJHFqUtRjYHX8KnPWNKdBBK6ekkBSBCWrUiiLwM6OFQ4IG3XaikTAQjsTVW0JBWoIcw_rB-LWjIGAE_8gas4tgt4DitwiS67sZCOOZwORag5aic1GkFknpPrCTCx5yucMtbMAWaySA65tsX0IEtgJGGq1MuV9dXTUMBE3O321QCa6hzSwscT7O993VOj7uX6CWoN7SHe3FuBFF8NPNoYBMjw0htiupMj7dtq3ABAtFml1uYWKACSPW7uIG__sIF8CwXCWY_6IlUnHA3KFg_FfEKrmMLFaxp2VEBHTe4GHMcAOWlgVtfkzoUjCyPi6Z0-QthsKwamBynblEbXFmE9tka0QOT6RZtwxPEFLi3k8BdlIk_zQhZz-Vu0lck36WUaAdY1iyQHSBbBCGXP5ytprtOlgWlQKR-jHAcNmtXY3pYRgy-x9FH07V76gRQhnq7AnGrPmwymqOdzlBIqnF1x_tmGaq39SPO9SyS6cMputknGve6BpuNgOu72ktYJggOwnQTTAqYiFfFaQJeqIaQs0YNW4RY7-U8XKt_nWkWVnOBZ2gIUbygMhXKX3tNAWIj85nCzoUEQHagSdxK23wDVlbOaMK8C2YDlkcXDWgz3QPLzHEvE4qJYjGzGcHNh2nDBoQuK7NPJim6z1VBv0tu-TW5VIlBTkoMbHq-9lVtxIB6Q8fPjJqkgHxVJ-J4VxkTJFBnM4FRisBjxBpUsWiKWsFdfVE7IKITlLE0U-uBP8PxYH1YLw9fpXdjAtA0pqxUb1A"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xdrive",
+        "security": "none",
+        "address": "hb.ru-msk.vkcloud-storage.ru",
+        "port": 443,
+        "xdriveSettings": {
+          "service": "S3",
+          "remoteFolder": "xs3/homestr/g2",
+          "secrets": [
+            "{\"endpoint\":\"https://hb.ru-msk.vkcloud-storage.ru\",\"region\":\"ru-msk\",\"bucket\":\"mydatastreams\",\"accessKey\":\"s2p3UwyF61P2sxq1SmjH9P\",\"secretKey\":\"hqnJ5L8MFKaxjhH4kme2F6fAw3VjBxu1NwfodEKwFxdW\"}"
+          ],
+          "segmentBytes": 262144,
+          "flushIntervalMs": 30,
+          "pollIntervalMs": 150,
+          "maxPollIntervalMs": 1200,
+          "concurrency": 4,
+          "sessionTtlSeconds": 300
+        }
+      },
+      "mux": {
+        "enabled": true,
+        "concurrency": 8
+      }
+    }
+  ]
+}
